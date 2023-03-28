@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  node:
+    image: node:18
+    volumes:
+      - .:/home/app:cached
+      - node_modules:/home/app/node_modules
+    working_dir: /home/app
+    ports:
+      - "3000:3000"
+    tty: true
+    environment:
+      - WATCHPACK_POLLING=true
+
+volumes:
+ node_modules:
